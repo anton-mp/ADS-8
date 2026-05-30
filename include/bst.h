@@ -6,8 +6,7 @@
 #include <vector>
 
 template <typename T>
-class BST
-{
+class BST {
  public:
     struct Node {
         T data;
@@ -24,13 +23,13 @@ class BST
              root->count = 1;
              root->left = nullptr;
              root->right = nullptr;
-         }
-         else if (data > root->data)
+         } else if (data > root->data) {
              root->right = addNode(root->right, data);
-         else if (data < root->data)
+         } else if (data < root->data) {
              root->left = addNode(root->left, data);
-         else
+         } else {
              root->count++;
+         }
          return root;
      }
      void deleteTree(Node* root) {
@@ -65,7 +64,7 @@ class BST
      }
  public:
      BST() : root(nullptr) {}
-     ~BST(){
+     ~BST() {
          deleteTree(root);
      }
      void insert(const T& data) {
