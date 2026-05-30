@@ -4,6 +4,8 @@
 #include  <locale>
 #include  <cstdlib>
 #include <vector>
+#include <utility>
+#include <string>
 
 #include  "bst.h"
 
@@ -15,15 +17,13 @@ void makeTree(BST<std::string>& tree, const char* filename) {
     }
 
     std::string str;
-    while (!file.eof())
-    {
+    while (!file.eof()) {
         char ch = file.get();
-        
+
         if (ch >= 'A' && ch <= 'Z') {
             ch += 32;
             str.push_back(ch);
-        }
-        else if (ch >= 'a' && ch <= 'z') {
+        } else if (ch >= 'a' && ch <= 'z') {
             str.push_back(ch);
         } else {
             if (!str.empty()) {
@@ -45,7 +45,7 @@ void nodeVectorSort(std::vector<BST<std::string>::Node*>& vector) {
         for (int j = i + 1; j < vector.size(); j++)
             if (vector[j]->count > vector[mini]->count)
                 mini = j;
-        std::swap(vector[i],vector[mini]);
+        std::swap(vector[i], vector[mini]);
     }
 }
 
