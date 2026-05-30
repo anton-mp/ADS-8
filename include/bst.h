@@ -7,6 +7,7 @@
 
 template <typename T>
 class BST {
+
  public:
     struct Node {
         T data;
@@ -14,6 +15,7 @@ class BST {
         Node* left;
         Node* right;
     };
+
  private:
      Node* root;
      Node* addNode(Node* root, const T& data) {
