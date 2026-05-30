@@ -3,6 +3,7 @@
 #define INCLUDE_BST_H_
 
 #include <algorithm>
+#include <vector>
 
 template <typename T>
 class BST
@@ -55,6 +56,13 @@ class BST
          }
          return root->count;
      }
+     void vectorAddAllNodes(std::vector<Node*>& vector, Node* root) {
+         if (root == nullptr)
+             return;
+         vectorAddAllNodes(vector, root->left);
+         vectorAddAllNodes(vector, root->right);
+         vector.push_back(root);
+     }
  public:
      BST() : root(nullptr) {}
      ~BST(){
@@ -68,6 +76,11 @@ class BST
      }
      int search(T value) {
          return searchTree(root, value);
+     }
+     std::vector<Node*> vectorNodeData() {
+         std::vector<Node*> vector;
+         vectorAddAllNodes(vector, root);
+         return vector;
      }
 };
 
