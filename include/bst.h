@@ -7,7 +7,6 @@
 
 template <typename T>
 class BST {
-
  public:
     struct Node {
         T data;
@@ -64,6 +63,7 @@ class BST {
          vectorAddAllNodes(vector, root->right);
          vector.push_back(root);
      }
+
  public:
      BST() : root(nullptr) {}
      ~BST() {
